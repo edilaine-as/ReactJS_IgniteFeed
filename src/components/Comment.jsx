@@ -5,7 +5,7 @@ import { Avatar } from './Avatar'
 export function Comment(props){
 
     function handleDeleteComment(){
-        props.onDeleteComment(content);
+        props.onDeleteComment(props.content);
     }
 
     return(

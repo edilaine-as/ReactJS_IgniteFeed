@@ -33,7 +33,13 @@ export function Post( {author, publishedAt, content }){
         setNewCommentText(event.target.value);
     }
 
-    function deleteComment(comment){
+    function deleteComment(commentToDelete){
+        //lista de comentario sem o deletado
+        const commentsWithoutDeleteOne = comments.filter(comment => {
+            return comment !== commentToDelete;
+        })
+
+        setComments(commentsWithoutDeleteOne);
 
     }
 
@@ -82,7 +88,7 @@ export function Post( {author, publishedAt, content }){
                         <Comment 
                             key={comment} 
                             content={comment} 
-                            OnDeleteComment={deleteComment}
+                            onDeleteComment={deleteComment}
                         />
                     )
                 })}
